@@ -5537,6 +5537,21 @@ function LivrosAdicionar() {
       descricao = _useState6[0],
       setDescricao = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      genero = _useState8[0],
+      setGenero = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      editora = _useState10[0],
+      setEditora = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      ano = _useState12[0],
+      setAno = _useState12[1];
+
   var onSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -5549,7 +5564,10 @@ function LivrosAdicionar() {
               _context.next = 5;
               return _api__WEBPACK_IMPORTED_MODULE_3__["default"].addLivro({
                 titulo: titulo,
-                descricao: descricao
+                descricao: descricao,
+                genero: genero,
+                editora: editora,
+                ano: ano
               });
 
             case 5:
@@ -5592,6 +5610,42 @@ function LivrosAdicionar() {
           value: titulo,
           onChange: function onChange(e) {
             return setTitulo(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Genero"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: genero,
+          onChange: function onChange(e) {
+            return setGenero(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Editora"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: editora,
+          onChange: function onChange(e) {
+            return setEditora(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Ano"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: ano,
+          onChange: function onChange(e) {
+            return setAno(e.target.value);
           }
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -5685,6 +5739,21 @@ function LivrosEditar() {
       descricao = _useState6[0],
       setDescricao = _useState6[1];
 
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      genero = _useState8[0],
+      setGenero = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      editora = _useState10[0],
+      setEditora = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState12 = _slicedToArray(_useState11, 2),
+      ano = _useState12[0],
+      setAno = _useState12[1];
+
   var onSubmit = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -5697,7 +5766,10 @@ function LivrosEditar() {
               _context.next = 5;
               return _api__WEBPACK_IMPORTED_MODULE_3__["default"].updateLivro({
                 titulo: titulo,
-                descricao: descricao
+                descricao: descricao,
+                genero: genero,
+                editora: editora,
+                ano: ano
               }, id);
 
             case 5:
@@ -5731,6 +5803,9 @@ function LivrosEditar() {
       var item = res.data;
       setTitulo(item.titulo);
       setDescricao(item.descricao);
+      setGenero(item.genero);
+      setEditora(item.editora);
+      setAno(item.ano);
     });
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_AppContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -5746,6 +5821,42 @@ function LivrosEditar() {
           value: titulo,
           onChange: function onChange(e) {
             return setTitulo(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Genero"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: genero,
+          onChange: function onChange(e) {
+            return setGenero(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Editora"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: editora,
+          onChange: function onChange(e) {
+            return setEditora(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: "Ano"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          type: "text",
+          value: ano,
+          onChange: function onChange(e) {
+            return setAno(e.target.value);
           }
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {

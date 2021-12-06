@@ -11,13 +11,16 @@ export default function LivrosEditar() {
     // Campos da tabela
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [genero, setGenero] = useState('');
+    const [editora, setEditora] = useState('');
+    const [ano, setAno] = useState('');
 
     const onSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
             await api.updateLivro({
-                titulo, descricao,
+                titulo, descricao, genero, editora, ano
             }, id);
             history.push('/livros');
         } catch {
@@ -32,6 +35,9 @@ export default function LivrosEditar() {
             const item = res.data;
             setTitulo(item.titulo);
             setDescricao(item.descricao);
+            setGenero(item.genero);
+            setEditora(item.editora);
+            setAno(item.ano);
         });
     }, []);
 
@@ -45,6 +51,27 @@ export default function LivrosEditar() {
                         className="form-control"
                         value={titulo}
                         onChange={e => setTitulo(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Genero</label>
+                    <input className="form-control" type="text"
+                           value={genero}
+                           onChange={e => setGenero(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Editora</label>
+                    <input className="form-control" type="text"
+                           value={editora}
+                           onChange={e => setEditora(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Ano</label>
+                    <input className="form-control" type="text"
+                           value={ano}
+                           onChange={e => setAno(e.target.value)}
                     />
                 </div>
                 <div className="form-group">

@@ -21,10 +21,7 @@ class LivroController extends Controller
     {
         $data = $request->post();
 
-        $request->validate([
-            'titulo' => 'required',
-            'descricao' => 'required',
-        ]);
+        
 
         $model = new Livro($data);
         $model->save();
@@ -36,11 +33,7 @@ class LivroController extends Controller
     {
         $data = $request->post();
 
-        $request->validate([
-            'titulo' => 'required',
-            'descricao' => 'required',
-        ]);
-
+       
         $model = Livro::findOrFail($id);
         $model->fill($data);
         $model->save();
