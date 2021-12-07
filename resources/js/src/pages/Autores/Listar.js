@@ -37,7 +37,9 @@ export default function AutoresListar() {
             <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>
-                <td>{item.nascimento}</td>
+                <td>{item.ano_nascimento}</td>
+                <td>{item.sexo}</td>
+                <td>{item.nacionalidade}</td>
                 <td>
                     <Link className="btn btn-warning" to={`/autores/editar/${item.id}`}>Editar</Link>
                     <button
@@ -45,7 +47,7 @@ export default function AutoresListar() {
                         className="btn btn-danger"
                         onClick={() => {
                             if (window.confirm('Deseja remover o registro?')) {
-                                api.deleteAutores(item.id)
+                                api.deleteLivro(item.id)
                                     .then(fetchData)
                                     .catch(err =>
                                         alert('Não foi possível remover o registro.')
@@ -61,7 +63,7 @@ export default function AutoresListar() {
     }
 
     return (
-        <AppContainer title="Autores">
+        <AppContainer title="autores">
             <Link to="/autores/adicionar" className="btn btn-primary">
                 Adicionar
             </Link>
@@ -71,8 +73,9 @@ export default function AutoresListar() {
                     <tr>
                         <th>ID.</th>
                         <th>Nome</th>
-                        <th>Naschimento</th>
-                        <th>Ações</th>
+                        <th>Ano nascimento</th>
+                        <th>Sexo</th>
+                        <th>Nacionalidade</th>
                     </tr>
                     </thead>
                     <tbody>

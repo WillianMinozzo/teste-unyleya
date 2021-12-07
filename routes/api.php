@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('livros', \App\Http\Controllers\LivroController::class);
+
 Route::resource('autores', \App\Http\Controllers\AutorController::class);

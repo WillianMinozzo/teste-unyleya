@@ -9,17 +9,16 @@ export default function AutoresAdicionar() {
 
     // Campos da tabela
     const [nome, setNome] = useState('');
-    const [nascimento, setNascimento] = useState('');
+    const [ano_nascimento, setAnoNascimento] = useState('');
     const [sexo, setSexo] = useState('');
     const [nacionalidade, setNacionalidade] = useState('');
-   
 
     const onSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
             await api.addAutor({
-                nome, nascimento, sexo, nacionalidade
+                nome, ano_nascimento, sexo, nacionalidade
             })
             history.push('/autores');
         } catch {
@@ -40,17 +39,17 @@ export default function AutoresAdicionar() {
                     />
                 </div>
                 <div className="form-group">
-                    <label>nascimento</label>
-                    <input className="form-control" type="text"
-                           value={nascimento}
-                           onChange={e => setNascimento(e.target.value)}
-                    />
-                </div>
-                <div className="form-group">
                     <label>Sexo</label>
                     <input className="form-control" type="text"
                            value={sexo}
                            onChange={e => setSexo(e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Ano nascimento</label>
+                    <input className="form-control" type="text"
+                           value={ano_nascimento}
+                           onChange={e => setAnoNascimento(e.target.value)}
                     />
                 </div>
                 <div className="form-group">
@@ -60,7 +59,7 @@ export default function AutoresAdicionar() {
                            onChange={e => setNacionalidade(e.target.value)}
                     />
                 </div>
-                    <div className="form-group">
+                <div className="form-group">
                     <button type="submit"
                             className="btn btn-success"
                             disabled={loading}

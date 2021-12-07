@@ -10,7 +10,7 @@ export default function AutoresEditar() {
 
     // Campos da tabela
     const [nome, setNome] = useState('');
-    const [nascimento, setNascimento] = useState('');
+    const [ano_nascimento, setAnoNascimento] = useState('');
     const [sexo, setSexo] = useState('');
     const [nacionalidade, setNacionalidade] = useState('');
 
@@ -19,7 +19,7 @@ export default function AutoresEditar() {
         setLoading(true);
         try {
             await api.updateAutor({
-                nome, nascimento, sexo, nacionalidade
+                nome, ano_nascimento, sexo, nacionalidade
             }, id);
             history.push('/autores');
         } catch {
@@ -30,32 +30,25 @@ export default function AutoresEditar() {
     };
 
     useEffect(() => {
-        api.getOneLivro(id).then((res) => {
+        api.getOneAutor(id).then((res) => {
             const item = res.data;
-            setNome(item.titulo);
-            setNascimento(item.descricao);
-            setSexo(item.genero);
-            setNacionalidade(item.editora);
+            setNome(item.nome);
+            setAnoNascimento(item.ano_nascimento);
+            setSexo(item.sexo);
+            setNacionalidade(item.nacionalidade);
         });
     }, []);
 
 
     return (
-        <AppContainer title="Editar Autores">
+        <AppContainer title="Editar Autor">
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>Nome</label>
                     <input
                         className="form-control"
                         value={nome}
-                        onChange={e => setNome(e.target.value)}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Nascimento</label>
-                    <input className="form-control" type="text"
-                           value={nascimento}
-                           onChange={e => setNascimento(e.target.value)}
+                        onChange={e => setTitulo(e.target.value)}
                     />
                 </div>
                 <div className="form-group">
@@ -66,11 +59,19 @@ export default function AutoresEditar() {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Nacionalidade</label>
+                    <label>Ano nascimento</label>
                     <input className="form-control" type="text"
-                           value={nacionalidade}
-                           onChange={e => setNacionalidade(e.target.value)}
+                           value={ano_nascimento}
+                           onChange={e => setAnoNascimento(e.target.value)}
                     />
+                </div>
+                <div className="form-group">
+                    <label>Nacionalidade</label>
+                    <textarea
+                        className="form-control"
+                        value={nacionalidade}
+                        onChange={e => setNacionalidade(e.target.value)}
+                    ></textarea>
                 </div>
                 <div className="form-group">
                     <button type="submit"
